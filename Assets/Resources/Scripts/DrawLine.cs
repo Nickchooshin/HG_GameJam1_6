@@ -2,47 +2,62 @@
 using System.Collections;
 
 public class DrawLine : MonoBehaviour {
-	
-	private int Count;
 
-	private LineRenderer _LineRenderer;
-	private Vector3 currentPos;
-	private Vector3 prevPos;
+    private DrawColor m_DrawColor;
+
+	private int m_nCount;
+
+	private LineRenderer m_LineRenderer;
+	private Vector3 m_vecCurrentPos;
+	private Vector3 m_vecPrevPos;
+    private Vector3 m_vecCameraPos;
+
+    public float LineWidth = 0.05f;
 
 	// Use this for initialization
 	void Start () {
-		Count = 0;
-		_LineRenderer = GetComponent<LineRenderer> ();
+        m_DrawColor = gameObject.GetComponent<DrawColor>();
+
+        m_vecCameraPos = -Camera.main.transform.position;
+
+        InitLineRenderer();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown(0))
 		{
-			_LineRenderer.SetVertexCount(Count+1);
-			currentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0.0f,0.0f,10.0f);
-			_LineRenderer.SetPosition(Count,currentPos);
+            m_vecCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + m_vecCameraPos;
+
+            m_LineRenderer.SetVertexCount(++m_nCount);
+            m_LineRenderer.SetPosition(m_nCount - 1, m_vecCurrentPos);
 		}
 		else if (Input.GetMouseButton(0))
 		{
-			currentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0.0f,0.0f,10.0f);
+            m_vecCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + m_vecCameraPos;
 
-			if (currentPos != prevPos)
-			{
-				Count++;
-				prevPos = currentPos;
-				_LineRenderer.SetVertexCount(Count+1);
-				_LineRenderer.SetPosition(Count,currentPos);
-			}
+            if (m_vecCurrentPos != m_vecPrevPos)
+            {
+                m_LineRenderer.SetVertexCount(++m_nCount);
+                m_LineRenderer.SetPosition(m_nCount - 1, m_vecCurrentPos);
+
+                m_vecPrevPos = m_vecCurrentPos;
+            }
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			Count = 0;
-			GameObject testObj = new GameObject();
-			testObj.AddComponent<LineRenderer>();
-			_LineRenderer = testObj.GetComponent<LineRenderer>();
-			_LineRenderer.SetWidth(0.05f,0.05f);
-			_LineRenderer.material = Resources.Load ("Materials/Red")as Material;
+            InitLineRenderer();
 		}
 	}
+
+    private void InitLineRenderer()
+    {
+        GameObject temp = new GameObject();
+        temp.name = "Line";
+        m_LineRenderer = temp.AddComponent<LineRenderer>();
+        m_LineRenderer.SetWidth(LineWidth, LineWidth);
+        m_LineRenderer.material = m_DrawColor.color;
+
+        m_nCount = 0;
+    }
 }
