@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SelectColor : MonoBehaviour {
 
-    public Material color;
+    public Color color;
 
     void Update()
     {
@@ -12,7 +12,7 @@ public class SelectColor : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
-            if (hit.collider == gameObject)
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
                 DrawColor.Instance.color = color;
         }
     }

@@ -11,6 +11,7 @@ public class DrawLine : MonoBehaviour {
     private Vector3 m_vecCameraPos;
 
     public float LineWidth = 0.05f;
+    private int renderQueue = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -52,8 +53,11 @@ public class DrawLine : MonoBehaviour {
         temp.name = "Line";
         m_LineRenderer = temp.AddComponent<LineRenderer>();
         m_LineRenderer.SetWidth(LineWidth, LineWidth);
-        m_LineRenderer.material = DrawColor.Instance.color;
+        m_LineRenderer.material = DrawColor.Instance.material;
+        m_LineRenderer.material.renderQueue = renderQueue;
+        m_LineRenderer.material.color = DrawColor.Instance.color;
 
         m_nCount = 0;
+        ++renderQueue;
     }
 }
