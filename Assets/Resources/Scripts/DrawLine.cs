@@ -3,8 +3,6 @@ using System.Collections;
 
 public class DrawLine : MonoBehaviour {
 
-    private DrawColor m_DrawColor;
-
 	private int m_nCount;
 
 	private LineRenderer m_LineRenderer;
@@ -16,8 +14,6 @@ public class DrawLine : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        m_DrawColor = gameObject.GetComponent<DrawColor>();
-
         m_vecCameraPos = -Camera.main.transform.position;
 
         InitLineRenderer();
@@ -56,7 +52,7 @@ public class DrawLine : MonoBehaviour {
         temp.name = "Line";
         m_LineRenderer = temp.AddComponent<LineRenderer>();
         m_LineRenderer.SetWidth(LineWidth, LineWidth);
-        m_LineRenderer.material = m_DrawColor.color;
+        m_LineRenderer.material = DrawColor.Instance.color;
 
         m_nCount = 0;
     }
