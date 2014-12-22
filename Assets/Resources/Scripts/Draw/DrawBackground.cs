@@ -6,17 +6,15 @@ public class DrawBackground : MonoBehaviour {
 
     void Start()
     {
-        string strFilePath = Application.dataPath + "/" + "DrawBackground" + StageState.Instance.NowStage() + ".txt";
+        TextAsset textAsset = Resources.Load("txt/DrawBackground" + StageState.Instance.NowStage()) as TextAsset;
+        TextReader reader = new StringReader(textAsset.text);
 
-        FileStream fs = new FileStream(strFilePath, FileMode.Open);
-        StreamReader sr = new StreamReader(fs);
+        string strBackground = reader.ReadLine();
 
-        string strBackground = sr.ReadLine();
+        reader.Close();
 
-        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = Resources.Load(strBackground, typeof(Sprite)) as Sprite;
-        spriteRenderer.material.renderQueue = 0;
-
-        sr.Close();
+        SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
+        spriteRender.sprite = Resources.Load(strBackground, typeof(Sprite)) as Sprite;
+        spriteRender.material.renderQueue = 0;
     }
 }

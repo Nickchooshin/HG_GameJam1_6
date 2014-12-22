@@ -10,19 +10,17 @@ public class QuizLoad {
 	
 	public QuizLoad(string strFilePath)
 	{
-		strFilePath = Application.dataPath + "/" + strFilePath;
-		
-		FileStream fs = new FileStream(strFilePath, FileMode.Open);
-		StreamReader sr = new StreamReader(fs);
+        TextAsset textAsset = Resources.Load(strFilePath) as TextAsset;
+        TextReader reader = new StringReader(textAsset.text);
 		
 		m_strAnswer = new string[3];
-		
-		m_strQuestion = sr.ReadLine();
-		for (int i = 0; i < 3; i++)
-			m_strAnswer[i] = sr.ReadLine();
-		m_nAnswer = int.Parse(sr.ReadLine());
 
-        sr.Close();
+        m_strQuestion = reader.ReadLine();
+		for (int i = 0; i < 3; i++)
+            m_strAnswer[i] = reader.ReadLine();
+        m_nAnswer = int.Parse(reader.ReadLine());
+
+        reader.Close();
 	}
 	
 	public string GetQuestion()
