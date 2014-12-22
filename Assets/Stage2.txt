@@ -1,5 +1,5 @@
-Textures/Q2
-Textures/A3
-Textures/A1
-Textures/A2
+Textures/Question/Problem2_Frog
+Textures/Answer/Selection_Lake
+Textures/Answer/Selection_Desert
+Textures/Answer/Selection_Heaven
 1

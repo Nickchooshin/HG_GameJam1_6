@@ -5,10 +5,13 @@ public class DrawLine : MonoBehaviour {
 
 	private int m_nCount;
 
+	private SpriteRenderer m_SpriteRenderer;
 	private LineRenderer m_LineRenderer;
 	private Vector3 m_vecCurrentPos;
 	private Vector3 m_vecPrevPos;
     private Vector3 m_vecCameraPos;
+
+	private int i;
 
     public float LineWidth = 0.05f;
     private int renderQueue = 0;
@@ -51,13 +54,24 @@ public class DrawLine : MonoBehaviour {
     {
         GameObject temp = new GameObject();
         temp.name = "Line";
+		m_SpriteRenderer = temp.AddComponent<SpriteRenderer>();
         m_LineRenderer = temp.AddComponent<LineRenderer>();
+
+		m_SpriteRenderer.sortingLayerName = "UI";
+		m_SpriteRenderer.sortingOrder = i;
+
+		m_LineRenderer.sortingLayerName = m_SpriteRenderer.sortingLayerName;
+		m_LineRenderer.sortingOrder = m_SpriteRenderer.sortingOrder;
+
         m_LineRenderer.SetWidth(LineWidth, LineWidth);
         m_LineRenderer.material = DrawColor.Instance.material;
         m_LineRenderer.material.renderQueue = renderQueue;
         m_LineRenderer.material.color = DrawColor.Instance.color;
+      
+		m_nCount = 0;
+		i++;
 
-        m_nCount = 0;
+		Debug.Log (i);
         ++renderQueue;
     }
 }

@@ -22,7 +22,7 @@ public class Test : MonoBehaviour {
 		m_objAnswer[2] = GameObject.Find ("A3");
 
 		currentStage = 1;
-		maxStage = 2;
+		maxStage = 10;
 		SetStage (currentStage);
 	}
 	
