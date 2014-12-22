@@ -1,0 +1,8 @@
+﻿그림에 무엇이 들어가야 될까?
+Textures/Question/Problem20_Home
+Textures/Answer/Selection_Staff
+Textures/Answer/Selection_Home
+Textures/Answer/Selection_Tree
+2
+false
+6

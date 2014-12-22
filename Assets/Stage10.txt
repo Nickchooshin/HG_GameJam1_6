@@ -1,0 +1,8 @@
+﻿나의 울음 소리는?
+Textures/Question/Problem10_Duck
+Textures/Answer/Selection_Yayong
+Textures/Answer/Selection_Moo
+Textures/Answer/Selection_Quack Quack
+3
+false
+4

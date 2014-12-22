@@ -1,5 +1,8 @@
+﻿내가 사는 곳은?
 Textures/Question/Problem2_Frog
 Textures/Answer/Selection_Lake
 Textures/Answer/Selection_Desert
 Textures/Answer/Selection_Heaven
+1
+false
 1

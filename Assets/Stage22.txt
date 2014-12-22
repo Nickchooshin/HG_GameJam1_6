@@ -1,0 +1,8 @@
+﻿무엇이 필요할까?
+Textures/Question/Problem22_Fish
+Textures/Answer/Selection_Ribbon
+Textures/Answer/Selection_Umbrella
+Textures/Answer/Selection_Fishbowl
+3
+true
+7

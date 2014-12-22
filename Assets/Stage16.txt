@@ -1,0 +1,8 @@
+﻿그림에 무엇이 들어가야 될까?
+Textures/Question/Problem16_Pencil
+Textures/Answer/Selection_Umbrella
+Textures/Answer/Selection_Pencil
+Textures/Answer/Selection_Staff
+2
+false
+6

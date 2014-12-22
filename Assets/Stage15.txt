@@ -1,0 +1,8 @@
+﻿그림에 무엇이 들어가야 될까?
+Textures/Question/Problem15_Ship
+Textures/Answer/Selection_Ship
+Textures/Answer/Selection_Car
+Textures/Answer/Selection_Plane
+1
+false
+6

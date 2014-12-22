@@ -1,0 +1,8 @@
+﻿무엇이 필요할까?
+Textures/Question/Problem18_Fire
+Textures/Answer/Selection_Pencil
+Textures/Answer/Selection_Ship
+Textures/Answer/Selection_Fire engine
+3
+false
+7
