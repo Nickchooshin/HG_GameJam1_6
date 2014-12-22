@@ -1,1 +1,3 @@
 Textures/DrawBackground/Back2-1
+Sounds/draw_chapter1
+8.0
