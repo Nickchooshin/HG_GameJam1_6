@@ -56,6 +56,7 @@ public class DrawLine : MonoBehaviour {
     {
         GameObject temp = new GameObject();
         temp.name = "Line";
+        temp.tag = "Draw";
         m_LineRenderer = temp.AddComponent<LineRenderer>();
 
         m_LineRenderer.SetWidth(LineWidth, LineWidth);
