@@ -15,17 +15,20 @@ public class Button : MonoBehaviour {
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
-        spriteRenderer.sprite = normalImage;
+        if (normalImage != null)
+            spriteRenderer.sprite = normalImage;
     }
 
     void OnMouseUp()
     {
-        spriteRenderer.sprite = normalImage;
+        if (normalImage != null)
+            spriteRenderer.sprite = normalImage;
     }
 
     void OnMouseDown()
     {
-        spriteRenderer.sprite = clickImage;
+        if (clickImage != null)
+            spriteRenderer.sprite = clickImage;
 
         if (eventClick != null)
             eventClick();
