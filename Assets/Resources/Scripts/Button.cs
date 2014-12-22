@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Button : MonoBehaviour {
 
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     public Sprite normalImage;
     public Sprite clickImage;
@@ -11,7 +11,7 @@ public class Button : MonoBehaviour {
     public delegate void ButtonClick();
     public event ButtonClick eventClick = null;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
@@ -32,5 +32,10 @@ public class Button : MonoBehaviour {
 
         if (eventClick != null)
             eventClick();
+    }
+
+    public void SetAlpha(float fAlpha)
+    {
+        spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, fAlpha);
     }
 }

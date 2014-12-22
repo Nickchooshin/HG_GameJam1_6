@@ -21,6 +21,8 @@ public class QuizLoad {
 		for (int i = 0; i < 3; i++)
 			m_strAnswer[i] = sr.ReadLine();
 		m_nAnswer = int.Parse(sr.ReadLine());
+
+        sr.Close();
 	}
 	
 	public string GetQuestion()

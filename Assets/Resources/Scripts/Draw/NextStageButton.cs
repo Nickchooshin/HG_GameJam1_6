@@ -14,5 +14,6 @@ public class NextStageButton : MonoBehaviour {
 
     void NextStage()
     {
+        DrawState.Instance.NextStage = true;
     }
 }

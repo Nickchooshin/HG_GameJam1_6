@@ -12,6 +12,11 @@ public class EraseButton : MonoBehaviour {
         button.eventClick += Erase;
     }
 
+    void Update()
+    {
+        button.collider2D.enabled = !DrawState.Instance.NextStage;
+    }
+
     void Erase()
     {
         GameObject[] LineObjects = GameObject.FindGameObjectsWithTag("Draw");
