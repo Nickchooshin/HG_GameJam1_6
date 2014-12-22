@@ -13,7 +13,7 @@ public class DrawBackground : MonoBehaviour {
 
     void Start()
     {
-        TextAsset textAsset = Resources.Load("txt/DrawBackground" + StageState.Instance.NowStage()) as TextAsset;
+        TextAsset textAsset = Resources.Load("txt/Draw/DrawBackground" + StageState.Instance.NowStage()) as TextAsset;
         TextReader reader = new StringReader(textAsset.text);
 
         string strBackground = reader.ReadLine();

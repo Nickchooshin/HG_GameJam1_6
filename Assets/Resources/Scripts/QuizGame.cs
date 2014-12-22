@@ -96,7 +96,7 @@ public class QuizGame : MonoBehaviour {
 
 	void SetStage (int _stage)
 	{
-		QuizLoad quiz = new QuizLoad ("Stage" + _stage + ".txt");
+		QuizLoad quiz = new QuizLoad ("Stage" + _stage);
 
 		m_GUIQuestion.text = quiz.GetTextQuestion ();
 
@@ -174,11 +174,11 @@ public class QuizGame : MonoBehaviour {
 
 	IEnumerator Clear ()
 	{
-		ShowStroy story = new ShowStroy("Ending02.txt");
+		ShowStroy story = new ShowStroy("Ending02");
 		Destroy (story.GetObjScene(), story.GetTime ());
 		yield return new WaitForSeconds(story.GetTime());
 
-		story = new ShowStroy("Ending03.txt");
+		story = new ShowStroy("Ending03");
 		Destroy (story.GetObjScene(), story.GetTime ());
 		yield return new WaitForSeconds(story.GetTime());
 

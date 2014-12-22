@@ -11,13 +11,12 @@ public class ShowStroy {
 
 	public ShowStroy (string strFilePath)
 	{
-		strFilePath = Application.dataPath + "/" + strFilePath;
-		FileStream fs = new FileStream(strFilePath, FileMode.Open);
-		StreamReader sr = new StreamReader(fs);
+        TextAsset textAsset = Resources.Load("txt/" + strFilePath) as TextAsset;
+        TextReader reader = new StringReader(textAsset.text);
 
-		m_strSpritePath = sr.ReadLine ();
-		//m_strNarrationPath = sr.ReadLine ();		//나레이션 녹음하면 추가
-		m_fTime = float.Parse(sr.ReadLine ());
+        m_strSpritePath = reader.ReadLine();
+        //m_strNarrationPath = reader.ReadLine ();		//나레이션 녹음하면 추가
+        m_fTime = float.Parse(reader.ReadLine());
 
 		m_objScene = new GameObject ();
 
@@ -28,8 +27,7 @@ public class ShowStroy {
 		//m_objScene.AddComponent<AudioSource> ();	//나레이션 녹음하면 추가
 		//m_objScene.GetComponent<AudioSource> ().PlayOneShot (Resources.Load(m_strNarrationPath,typeof(AudioClip)) as AudioClip);	//나레이션 녹음하면 추가
 
-		fs.Close ();
-		sr.Close ();
+        reader.Close();
 	}
 
 	public GameObject GetObjScene()

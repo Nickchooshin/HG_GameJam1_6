@@ -13,12 +13,14 @@ public class QuizLoad {
 	
 	public QuizLoad(string strFilePath)
 	{
-        TextAsset textAsset = Resources.Load(strFilePath) as TextAsset;
+        TextAsset textAsset = Resources.Load("txt/" + strFilePath) as TextAsset;
         TextReader reader = new StringReader(textAsset.text);
 		
 		m_strAnswer = new string[3];
+
 		m_strTextQuestion = reader.ReadLine();
-        m_strQuestion = reader.ReadLine();		for (int i = 0; i < 3; i++)
+        m_strQuestion = reader.ReadLine();
+        for (int i = 0; i < 3; i++)
             m_strAnswer[i] = reader.ReadLine();
         m_nAnswer = int.Parse(reader.ReadLine());
 		m_bStoryState = bool.Parse (reader.ReadLine ());

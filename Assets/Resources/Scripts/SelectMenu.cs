@@ -71,7 +71,7 @@ public class SelectMenu : MonoBehaviour {
 					if (hit.collider.gameObject == m_MainButton[0])
 					{
 						//SelectWindow
-						ShowStroy story = new ShowStroy("Opening.txt");
+						ShowStroy story = new ShowStroy("Opening");
 						Destroy(story.GetObjScene(),story.GetTime());
 						StartCoroutine(ButtonActive(story.GetTime()));
 					}
