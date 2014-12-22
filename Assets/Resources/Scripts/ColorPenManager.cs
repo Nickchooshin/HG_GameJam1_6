@@ -6,7 +6,7 @@ public class ColorPenManager : MonoBehaviour {
 
     public List<GameObject> PenList;
     private GameObject selectedPen;
-    private Vector3 vecPenMove = new Vector3(0.0f, 0.2f, 0.0f);
+    private Vector3 vecPenMove = new Vector3(0.0f, 0.5f, 0.0f);
 
     void Start()
     {
