@@ -4,6 +4,8 @@ using System.Collections;
 public class StageState : MonoSingleton<StageState> {
 
     private int Stage = 1;
+	private int MinStage = 1;
+	private int MaxStage = 4;
 
     public override void Init()
     {
@@ -34,4 +36,28 @@ public class StageState : MonoSingleton<StageState> {
     {
         Destroy(this);
     }
+
+	public bool MaxStageCheck ()
+	{
+		if (Stage == MaxStage)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public bool MinStageCheck ()
+	{
+		if (Stage == MinStage)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

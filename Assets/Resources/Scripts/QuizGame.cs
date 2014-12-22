@@ -174,16 +174,19 @@ public class QuizGame : MonoBehaviour {
 
 	IEnumerator Clear ()
 	{
+		GameObject skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
 		ShowStroy story = new ShowStroy("Ending02");
+		skip.transform.parent =  story.GetObjScene().transform; 
 		Destroy (story.GetObjScene(), story.GetTime ());
 		yield return new WaitForSeconds(story.GetTime());
-
+		
+		skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
 		story = new ShowStroy("Ending03");
-		Destroy (story.GetObjScene(), story.GetTime ());
+		skip.transform.parent =  story.GetObjScene().transform; 
 		yield return new WaitForSeconds(story.GetTime());
-
+		
 		Destroy(m_objEffect);					
-
+		
 		Application.LoadLevel ("Main");
 	}
 }

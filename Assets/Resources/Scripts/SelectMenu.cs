@@ -71,7 +71,9 @@ public class SelectMenu : MonoBehaviour {
 					if (hit.collider.gameObject == m_MainButton[0])
 					{
 						//SelectWindow
+						GameObject skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
 						ShowStroy story = new ShowStroy("Opening");
+						skip.transform.parent =  story.GetObjScene().transform; 
 						Destroy(story.GetObjScene(),story.GetTime());
 						StartCoroutine(ButtonActive(story.GetTime()));
 					}
@@ -86,7 +88,7 @@ public class SelectMenu : MonoBehaviour {
 					}
 					else if (hit.collider.gameObject == m_SelectGameType[0])
 					{
-						Debug.Log ("A_Game");
+						Application.LoadLevel("drawScene");
 					}
 					else if (hit.collider.gameObject == m_SelectGameType[1])
 					{

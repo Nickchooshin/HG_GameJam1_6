@@ -1,11 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\SelectMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\QuizGame.cs">
     <Files>
-      <File FileName="Assets\Resources\Scripts\QuizGame.cs" Line="60" Column="3" />
-      <File FileName="Assets\Resources\Scripts\Player.cs" Line="34" Column="1" />
-      <File FileName="Assets\Resources\Scripts\SelectMenu.cs" Line="76" Column="53" />
-      <File FileName="Assets\Resources\Scripts\ShowStroy.cs" Line="12" Column="39" />
-      <File FileName="Assets\Resources\Scripts\QuizLoad.cs" Line="31" Column="15" />
+      <File FileName="Assets\Resources\Scripts\SelectMenu.cs" Line="11" Column="34" />
+      <File FileName="Assets\Resources\Scripts\QuizGame.cs" Line="159" Column="24" />
+      <File FileName="Assets\Resources\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\ShowStroy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\QuizLoad.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Skip.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Draw\DrawBackground.cs" Line="22" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
