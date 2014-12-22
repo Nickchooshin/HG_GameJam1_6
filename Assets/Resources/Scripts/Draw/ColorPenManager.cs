@@ -10,12 +10,16 @@ public class ColorPenManager : MonoBehaviour {
 
     private DrawLine drawLine;
 
+    private AudioClip SE_Pencil;
+
     void Start()
     {
         selectedPen = PenList[0];
         selectedPen.transform.position += vecPenMove;
 
         drawLine = gameObject.GetComponent<DrawLine>();
+
+        SE_Pencil = Resources.Load("Sounds/Effect/SE_Pencil", typeof(AudioClip)) as AudioClip;
 
         StartCoroutine("Loop");
     }
@@ -44,6 +48,8 @@ public class ColorPenManager : MonoBehaviour {
 
                             PenColor penColor = Pen.GetComponent<PenColor>();
                             DrawColor.Instance.color = penColor.color;
+
+                            AudioManager.Instance.PlaySE(SE_Pencil);
                             break;
                         }
                     }

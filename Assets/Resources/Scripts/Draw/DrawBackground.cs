@@ -7,8 +7,6 @@ public class DrawBackground : MonoBehaviour {
     public SpriteRenderer background;
     public SpriteRenderer background_text;
 
-    private AudioSource audioSource;
-
     private float m_fWaitTime ;
 
     void Start()
@@ -28,8 +26,8 @@ public class DrawBackground : MonoBehaviour {
         background_text.sprite = Resources.Load(strBackground + "_text", typeof(Sprite)) as Sprite;
         background_text.material.renderQueue = 0;
 
-        audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(Resources.Load(strAudio, typeof(AudioClip)) as AudioClip);
+        AudioClip SE_Chapter = Resources.Load(strAudio, typeof(AudioClip)) as AudioClip;
+        AudioManager.Instance.PlaySE(SE_Chapter);
 
         StartCoroutine("FadeOut");
     }
