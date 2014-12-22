@@ -16,36 +16,41 @@ public class DrawLine : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_vecCameraPos = -Camera.main.transform.position;
-
-        InitLineRenderer();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButtonDown(0))
-		{
-            m_vecCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + m_vecCameraPos;
 
-            m_LineRenderer.SetVertexCount(++m_nCount);
-            m_LineRenderer.SetPosition(m_nCount - 1, m_vecCurrentPos);
-		}
-		else if (Input.GetMouseButton(0))
-		{
-            m_vecCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + m_vecCameraPos;
-
-            if (m_vecCurrentPos != m_vecPrevPos)
+    IEnumerator Draw()
+    {
+        while (true)
+        {
+            if (Input.GetMouseButtonDown(0))
             {
+                InitLineRenderer();
+
+                m_vecCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + m_vecCameraPos;
+
                 m_LineRenderer.SetVertexCount(++m_nCount);
                 m_LineRenderer.SetPosition(m_nCount - 1, m_vecCurrentPos);
-
-                m_vecPrevPos = m_vecCurrentPos;
             }
-		}
-		else if (Input.GetMouseButtonUp(0))
-		{
-            InitLineRenderer();
-		}
-	}
+            else if (Input.GetMouseButton(0))
+            {
+                m_vecCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + m_vecCameraPos;
+
+                if (m_vecCurrentPos != m_vecPrevPos)
+                {
+                    m_LineRenderer.SetVertexCount(++m_nCount);
+                    m_LineRenderer.SetPosition(m_nCount - 1, m_vecCurrentPos);
+
+                    m_vecPrevPos = m_vecCurrentPos;
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                StopCoroutine("Draw");
+            }
+
+            yield return null;
+        }
+    }
 
     private void InitLineRenderer()
     {

@@ -8,10 +8,14 @@ public class ColorPenManager : MonoBehaviour {
     private GameObject selectedPen;
     private Vector3 vecPenMove = new Vector3(0.0f, 0.5f, 0.0f);
 
+    private DrawLine drawLine;
+
     void Start()
     {
         selectedPen = PenList[0];
         selectedPen.transform.position += vecPenMove;
+
+        drawLine = gameObject.GetComponent<DrawLine>();
     }
 
     void Update()
@@ -37,6 +41,8 @@ public class ColorPenManager : MonoBehaviour {
                     }
                 }
             }
+            else
+                drawLine.StartCoroutine("Draw");
         }
     }
 }
