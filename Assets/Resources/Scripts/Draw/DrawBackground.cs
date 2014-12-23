@@ -27,7 +27,7 @@ public class DrawBackground : MonoBehaviour {
         background_text.material.renderQueue = 0;
 
         AudioClip SE_Chapter = Resources.Load(strAudio, typeof(AudioClip)) as AudioClip;
-        AudioManager.Instance.PlaySE(SE_Chapter);
+        AudioManager.Instance.PlayVoice(SE_Chapter);
 
         StartCoroutine("FadeOut");
     }

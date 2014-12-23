@@ -62,11 +62,19 @@ public class StageClearMenu : MonoBehaviour {
 
     void Again()
     {
+        AudioManager.Instance.StopBGM();
+        AudioManager.Instance.StopSE();
+        AudioManager.Instance.StopVoice();
+
         Application.LoadLevel("drawScene");
     }
 
     void Next()
     {
+        AudioManager.Instance.StopBGM();
+        AudioManager.Instance.StopSE();
+        AudioManager.Instance.StopVoice();
+
 		if (StageState.Instance.MaxStageCheck())
 		{
 			StageState.Instance.DestroySingleton();
@@ -85,6 +93,10 @@ public class StageClearMenu : MonoBehaviour {
 
     void Prev()
     {
+        AudioManager.Instance.StopBGM();
+        AudioManager.Instance.StopSE();
+        AudioManager.Instance.StopVoice();
+
 		if (StageState.Instance.MinStageCheck() == false)
 		{
         	StageState.Instance.PrevStage();
