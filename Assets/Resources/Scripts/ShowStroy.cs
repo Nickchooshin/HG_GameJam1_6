@@ -15,7 +15,7 @@ public class ShowStroy {
         TextReader reader = new StringReader(textAsset.text);
 
         m_strSpritePath = reader.ReadLine();
-        //m_strNarrationPath = reader.ReadLine ();		//나레이션 녹음하면 추가
+        m_strNarrationPath = reader.ReadLine ();		//나레이션 녹음하면 추가
         m_fTime = float.Parse(reader.ReadLine());
 
 		m_objScene = new GameObject ();
@@ -24,8 +24,8 @@ public class ShowStroy {
 		m_objScene.GetComponent<SpriteRenderer> ().sortingLayerID = 1;
 		m_objScene.GetComponent<SpriteRenderer> ().sprite = Resources.Load (m_strSpritePath, typeof(Sprite)) as Sprite;
 
-		//m_objScene.AddComponent<AudioSource> ();	//나레이션 녹음하면 추가
-		//m_objScene.GetComponent<AudioSource> ().PlayOneShot (Resources.Load(m_strNarrationPath,typeof(AudioClip)) as AudioClip);	//나레이션 녹음하면 추가
+		m_objScene.AddComponent<AudioSource> ();	//나레이션 녹음하면 추가
+		m_objScene.GetComponent<AudioSource> ().PlayOneShot (Resources.Load(m_strNarrationPath,typeof(AudioClip)) as AudioClip);	//나레이션 녹음하면 추가
 
         reader.Close();
 	}
