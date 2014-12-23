@@ -1,8 +1,0 @@
-﻿이곳에는 무엇이 살까?
-Textures/Question/Problem13_sea
-Textures/Answer/Selection_Ant
-Textures/Answer/Selection_Fish
-Textures/Answer/Selection_Rabbit
-2
-true
-5

@@ -1,8 +1,0 @@
-﻿무엇이 필요할까?
-Textures/Question/Problem17_Rain
-Textures/Answer/Selection_Ribbon
-Textures/Answer/Selection_Book
-Textures/Answer/Selection_Umbrella
-3
-false
-7

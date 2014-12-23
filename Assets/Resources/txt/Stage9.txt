@@ -1,8 +1,0 @@
-﻿나는 누구일까?
-Textures/Question/Problem9_Duck Footprint
-Textures/Answer/Selection_Duck
-Textures/Answer/Selection_Lion
-Textures/Answer/Selection_Rabbit
-1
-false
-3

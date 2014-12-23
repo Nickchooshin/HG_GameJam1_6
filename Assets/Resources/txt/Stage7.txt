@@ -1,8 +1,0 @@
-﻿나는 누구일까?
-Textures/Question/Problem7_Dog Footprint
-Textures/Answer/Selection_Worm
-Textures/Answer/Selection_Dog
-Textures/Answer/Selection_Chicken
-2
-false
-3

@@ -1,8 +1,0 @@
-﻿내가 어른이 되면 어떤 모습을 할까?
-Textures/Question/Problem1_Tadpole
-Textures/Answer/Selection_Frog
-Textures/Answer/Selection_Lion
-Textures/Answer/Selection_Cat
-1
-false
-0

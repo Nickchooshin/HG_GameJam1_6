@@ -1,3 +1,0 @@
-Textures/Story/Ending_3
-Sounds/Story/Ending_3
-8.0

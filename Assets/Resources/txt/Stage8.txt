@@ -1,8 +1,0 @@
-﻿나의 울음 소리는?
-Textures/Question/Problem8_Dog
-Textures/Answer/Selection_Mang Mang
-Textures/Answer/Selection_Moo
-Textures/Answer/Selection_Gaegul Gaegul
-1
-false
-4

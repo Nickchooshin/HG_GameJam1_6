@@ -1,4 +1,0 @@
-Textures/DrawBackground/Back2-1
-Sounds/Draw/draw_chapter1
-Sounds/BackGround/BGM_2_hand
-8.0

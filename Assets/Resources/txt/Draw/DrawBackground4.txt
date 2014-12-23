@@ -1,4 +1,0 @@
-Textures/DrawBackground/Back2-4
-Sounds/Draw/draw_chapter4
-Sounds/BackGround/BGM_2_animal
-6.0

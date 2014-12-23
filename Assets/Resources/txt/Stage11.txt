@@ -1,8 +1,0 @@
-﻿나의 발자국은?
-Textures/Question/Problem12_Cat
-Textures/Answer/Selection_Cat Footprints
-Textures/Answer/Selection_Duck footprint
-Textures/Answer/Selection_Human Footprint
-1
-false
-2

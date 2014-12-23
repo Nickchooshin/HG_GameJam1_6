@@ -1,3 +1,0 @@
-Textures/Story/Opening
-Sounds/Story/Opening
-23.0

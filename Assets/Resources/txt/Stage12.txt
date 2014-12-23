@@ -1,8 +1,0 @@
-﻿나의 울음 소리는?
-Textures/Question/Problem12_Cat
-Textures/Answer/Selection_Moo
-Textures/Answer/Selection_Gaegul Gaegul
-Textures/Answer/Selection_Yayong
-3
-false
-4

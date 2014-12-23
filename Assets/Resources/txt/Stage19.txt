@@ -1,8 +1,0 @@
-﻿그림에 무엇이 들어가야 될까?
-Textures/Question/Problem19_Flowers
-Textures/Answer/Selection_Plane
-Textures/Answer/Selection_Flowers
-Textures/Answer/Selection_Umbrella
-2
-false
-6

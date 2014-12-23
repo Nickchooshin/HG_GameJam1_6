@@ -1,8 +1,0 @@
-﻿무엇이 필요할까?
-Textures/Question/Problem21_Food
-Textures/Answer/Selection_Fork
-Textures/Answer/Selection_Staff
-Textures/Answer/Selection_Car
-1
-false
-7
