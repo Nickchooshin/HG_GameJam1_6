@@ -79,6 +79,8 @@ public class StageClearMenu : MonoBehaviour {
 		{
 			StageState.Instance.DestroySingleton();
 
+			ClearState.Instance.SetClear(true);
+
 			GameObject skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
 			ShowStroy story = new ShowStroy("Ending01");
 			skip.transform.parent =  story.GetObjScene().transform; 

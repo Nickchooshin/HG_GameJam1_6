@@ -30,10 +30,12 @@ public class Skip : MonoBehaviour {
 		}
 		else if (m_parentName == "Ending_1")
 		{
+			ClearState.Instance.SetClear(true);
 			Application.LoadLevel ("Main");
 		}
 		else if (m_parentName == "Ending_2" || m_parentName == "Ending_3")
 		{
+			ClearState.Instance.SetClear(true);
 			Application.LoadLevel ("Main");
 		}
 	}

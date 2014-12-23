@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class SelectMenu : MonoBehaviour {
-
 	private Color m_SelectMenuColor;
 	private GameObject m_objMainButton;
 	private GameObject[] m_MainButton;
@@ -13,6 +12,8 @@ public class SelectMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//ClearState.Instance
+
 		m_MainButton = new GameObject[3];
 		m_MainButton [0] = GameObject.Find ("main_but_1");
 		m_MainButton [1] = GameObject.Find ("main_but_2");
@@ -33,6 +34,14 @@ public class SelectMenu : MonoBehaviour {
 		AudioManager.Instance.PlayBGM(BGM);
 
 		SE_Button = Resources.Load("Sounds/Effect/SE_Butten", typeof(AudioClip)) as AudioClip;
+
+		if (ClearState.Instance.ClearCheck())
+		{
+			m_objMainButton.SetActive (false);
+			m_objSelect_Window.SetActive (true);
+
+			ClearState.Instance.SetClear(false);
+		}
 	}
 	
 	// Update is called once per frame

@@ -13,7 +13,6 @@ public class QuizGame : MonoBehaviour {
 	private bool m_bAnswerCheck;
 
 	private GUIText m_GUIQuestion;
-	//private GameObject m_objEffect;
 	private GameObject m_objQuestion;
 	private GameObject[] m_objAnswer;
 
@@ -148,6 +147,7 @@ public class QuizGame : MonoBehaviour {
 				if (currentStage == maxStage)
 				{
 					StartCoroutine(Clear());
+					yield return StartCoroutine("Clear");
 				}
 				else 
 				{
@@ -177,7 +177,6 @@ public class QuizGame : MonoBehaviour {
 	IEnumerator Clear ()
 	{
 		m_srtSoundManager.SetBackGroundSound (1);
-		m_bAnswerCheck = false;
 
 		GameObject skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
 		ShowStroy story = new ShowStroy("Ending02");
@@ -190,7 +189,8 @@ public class QuizGame : MonoBehaviour {
 		skip.transform.parent =  story.GetObjScene().transform; 
 		yield return new WaitForSeconds(story.GetTime());
 
-		m_bAnswerCheck = true;
+		ClearState.Instance.SetClear(true);
+
 		Application.LoadLevel ("Main");
 	}
 }
