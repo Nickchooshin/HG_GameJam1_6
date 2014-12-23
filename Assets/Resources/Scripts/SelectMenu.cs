@@ -10,10 +10,11 @@ public class SelectMenu : MonoBehaviour {
 	private GameObject m_prevButton;
 	private AudioClip SE_Button;
 
+    private GameUnlock gameUnlockState;
+
 	// Use this for initialization
 	void Start () {
 		//ClearState.Instance
-
 		m_MainButton = new GameObject[3];
 		m_MainButton [0] = GameObject.Find ("main_but_1");
 		m_MainButton [1] = GameObject.Find ("main_but_2");
@@ -42,6 +43,9 @@ public class SelectMenu : MonoBehaviour {
 
 			ClearState.Instance.SetClear(false);
 		}
+
+        gameUnlockState = new GameUnlock();
+        m_SelectGameType[0].active = gameUnlockState.BeGameUnlock();
 	}
 	
 	// Update is called once per frame

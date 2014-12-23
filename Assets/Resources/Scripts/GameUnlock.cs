@@ -12,10 +12,13 @@ public class GameUnlock {
 
         string filepath = pathForDocumentsFile.path("game.dat");
 
-        fs = new FileStream(filepath, FileMode.Open);
-        if (fs == null)
+        try
         {
-            fs = new FileStream(filepath, FileMode.CreateNew);
+            fs = new FileStream(filepath, FileMode.Open);
+        }
+        catch(FileNotFoundException exception)
+        {
+            fs = new FileStream(filepath, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine(false);
             sw.Close();
@@ -23,6 +26,7 @@ public class GameUnlock {
 
             fs = new FileStream(filepath, FileMode.Open);
         }
+
         StreamReader sr = new StreamReader(fs);
 
         m_bGameUnlock = bool.Parse(sr.ReadLine());

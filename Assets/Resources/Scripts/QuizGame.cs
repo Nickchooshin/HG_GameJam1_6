@@ -176,6 +176,9 @@ public class QuizGame : MonoBehaviour {
 
 	IEnumerator Clear ()
 	{
+        GameUnlock gameUnlock = new GameUnlock();
+        gameUnlock.DoGameUnlock();
+
 		m_srtSoundManager.SetBackGroundSound (1);
 
 		GameObject skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
