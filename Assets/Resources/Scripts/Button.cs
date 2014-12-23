@@ -8,6 +8,8 @@ public class Button : MonoBehaviour {
     public Sprite normalImage;
     public Sprite clickImage;
 
+    public AudioClip audioClip = null;
+
     public delegate void ButtonClick();
     public event ButtonClick eventClick = null;
 
@@ -32,6 +34,9 @@ public class Button : MonoBehaviour {
 
         if (eventClick != null)
             eventClick();
+
+        if (audioClip != null)
+            AudioManager.Instance.PlaySE(audioClip);
     }
 
     public void SetAlpha(float fAlpha)
