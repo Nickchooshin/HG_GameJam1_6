@@ -79,8 +79,7 @@ public class SelectMenu : MonoBehaviour {
 					}
 					else if (hit.collider.gameObject == m_MainButton[1])
 					{
-						//Credit
-						Debug.Log ("Credit");
+                        Application.LoadLevel("creditScene");
 					}
 					else if (hit.collider.gameObject == m_MainButton[2])
 					{
