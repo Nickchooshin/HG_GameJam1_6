@@ -16,6 +16,7 @@ public class DrawBackground : MonoBehaviour {
 
         string strBackground = reader.ReadLine();
         string strAudio = reader.ReadLine();
+		string strBGM = reader.ReadLine ();
         m_fWaitTime = float.Parse(reader.ReadLine());
 
         reader.Close();
@@ -28,6 +29,10 @@ public class DrawBackground : MonoBehaviour {
 
         AudioClip SE_Chapter = Resources.Load(strAudio, typeof(AudioClip)) as AudioClip;
         AudioManager.Instance.PlayVoice(SE_Chapter);
+
+		AudioClip BGM_Chapter = Resources.Load(strBGM, typeof(AudioClip)) as AudioClip;
+		AudioManager.Instance.StopBGM ();
+		AudioManager.Instance.PlayBGM(BGM_Chapter);
 
         StartCoroutine("FadeOut");
     }

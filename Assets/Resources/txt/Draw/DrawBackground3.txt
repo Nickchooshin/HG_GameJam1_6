@@ -1,3 +1,4 @@
 Textures/DrawBackground/Back2-3
 Sounds/Draw/draw_chapter3
+Sounds/BackGround/BGM_2_Rainy
 7.0

@@ -5,9 +5,13 @@ public class EraseButton : MonoBehaviour {
 
     private Button button;
 
+    private AudioClip SE_Eraser;
+
     void Start()
     {
         button = gameObject.GetComponent<Button>();
+
+        SE_Eraser = Resources.Load("Sounds/Effect/SE_Eraser", typeof(AudioClip)) as AudioClip;
 
         button.eventClick += Erase;
     }
@@ -23,5 +27,7 @@ public class EraseButton : MonoBehaviour {
 
         foreach (GameObject LineObject in LineObjects)
             Destroy(LineObject);
+
+        AudioManager.Instance.PlaySE(SE_Eraser);
     }
 }

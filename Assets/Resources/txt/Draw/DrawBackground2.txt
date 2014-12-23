@@ -1,3 +1,4 @@
 Textures/DrawBackground/Back2-2
 Sounds/Draw/draw_chapter2
+Sounds/BackGround/BGM_2_harm
 7.0

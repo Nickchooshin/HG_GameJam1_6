@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour {
 	private AudioSource m_QuestionSound; 
 	private AudioSource m_EffectSound; 
 
-	private AudioClip m_BackGroundClip;
+	private AudioClip[] m_BackGroundClip;
 	private AudioClip[] m_QuestionClip;
 	private AudioClip[] m_EffectClip;
 
@@ -22,7 +22,9 @@ public class SoundManager : MonoBehaviour {
 		m_EffectSound = m_ThisTransform.FindChild ("EffectSound").GetComponent<AudioSource>();
 
 		//BackGround Sound
-		m_BackGroundClip = Resources.Load ("Sounds/BackGround/BGM_1", typeof(AudioClip)) as AudioClip;
+		m_BackGroundClip = new AudioClip[2];
+		m_BackGroundClip[0] = Resources.Load ("Sounds/BackGround/BGM_1", typeof(AudioClip)) as AudioClip;
+		m_BackGroundClip[1] = Resources.Load ("Sounds/BackGround/BGM_5", typeof(AudioClip)) as AudioClip;
 
 		//Question Sound
 		m_QuestionClip = new AudioClip[8];
@@ -44,9 +46,9 @@ public class SoundManager : MonoBehaviour {
 		SetVulume (1.0f);
 	}
 
-	public void SetBackGroundSound ()
+	public void SetBackGroundSound (int _ClipNumber)
 	{
-		m_BackGroundSound.clip = m_BackGroundClip;
+		m_BackGroundSound.clip = m_BackGroundClip[_ClipNumber];
 		m_BackGroundSound.Play();
 	}
 

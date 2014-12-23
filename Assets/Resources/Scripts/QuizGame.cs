@@ -10,9 +10,10 @@ public class QuizGame : MonoBehaviour {
 	private int currentStage;
 	private int maxStage;
 	private int m_nAnswer;
+	private bool m_bAnswerCheck;
 
 	private GUIText m_GUIQuestion;
-	private GameObject m_objEffect;
+	//private GameObject m_objEffect;
 	private GameObject m_objQuestion;
 	private GameObject[] m_objAnswer;
 
@@ -56,7 +57,9 @@ public class QuizGame : MonoBehaviour {
 		maxStage = 22;
 		SetStage (currentStage);
 
-		m_srtSoundManager.SetBackGroundSound ();
+		m_srtSoundManager.SetBackGroundSound (0);
+
+		m_bAnswerCheck = true;
 	}
 	
 	// Update is called once per frame
@@ -66,7 +69,7 @@ public class QuizGame : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
 
-			if(hit.collider != null && m_objEffect == null)
+			if(hit.collider != null && m_bAnswerCheck)
 			{
 				string path = "Textures/Circle_";
 				GameObject temp = new GameObject();
@@ -116,7 +119,9 @@ public class QuizGame : MonoBehaviour {
 
 	IEnumerator AnswerEffect (float _time, EffectType _type)
 	{
-		m_objEffect = Instantiate (Resources.Load ("Prefabs/Effect"), Vector3.zero, Quaternion.identity) as GameObject;
+		m_bAnswerCheck = false;
+
+		GameObject m_objEffect = Instantiate (Resources.Load ("Prefabs/Effect"), Vector3.zero, Quaternion.identity) as GameObject;
 		m_objEffect.GetComponent<Animator> ().SetTrigger(_type.ToString());
 
 		Destroy (m_objEffect, _time);
@@ -129,8 +134,6 @@ public class QuizGame : MonoBehaviour {
 			if (m_bStoryState)
 			{
 				m_srtSoundManager.GetQuestionSound().Stop();	// 질문 소리 정지 
-
-				m_objEffect = new GameObject();				// 스토리 연출 동안 클릭 방지
 
 				m_GUIQuestion.text = "";
 				m_objPlayer.transform.parent.position -= m_vecStoryPos;
@@ -145,12 +148,9 @@ public class QuizGame : MonoBehaviour {
 				if (currentStage == maxStage)
 				{
 					StartCoroutine(Clear());
-					Debug.Log ("Clear");
 				}
 				else 
 				{
-					Destroy(m_objEffect);						// 스토리 종료 후 파괴 
-
 					m_srtPlayer.SetMove(false);
 					m_objPlayer.transform.parent.position += m_vecStoryPos;
 
@@ -170,10 +170,15 @@ public class QuizGame : MonoBehaviour {
 			m_srtSoundManager.SetEffectSound(5);	//Fail Sound
 			yield return new WaitForSeconds (_time);
 		}
+
+		m_bAnswerCheck = true;
 	}
 
 	IEnumerator Clear ()
 	{
+		m_srtSoundManager.SetBackGroundSound (1);
+		m_bAnswerCheck = false;
+
 		GameObject skip = Instantiate(Resources.Load ("Prefabs/SkipButton")) as GameObject;
 		ShowStroy story = new ShowStroy("Ending02");
 		skip.transform.parent =  story.GetObjScene().transform; 
@@ -184,9 +189,8 @@ public class QuizGame : MonoBehaviour {
 		story = new ShowStroy("Ending03");
 		skip.transform.parent =  story.GetObjScene().transform; 
 		yield return new WaitForSeconds(story.GetTime());
-		
-		Destroy(m_objEffect);					
-		
+
+		m_bAnswerCheck = true;
 		Application.LoadLevel ("Main");
 	}
 }

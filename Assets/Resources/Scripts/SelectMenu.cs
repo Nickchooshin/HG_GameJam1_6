@@ -9,6 +9,7 @@ public class SelectMenu : MonoBehaviour {
 	private GameObject m_objSelect_Window;
 	private GameObject[] m_SelectGameType;
 	private GameObject m_prevButton;
+	private AudioClip SE_Button;
 
 	// Use this for initialization
 	void Start () {
@@ -27,11 +28,26 @@ public class SelectMenu : MonoBehaviour {
 		m_objSelect_Window.SetActive (false);
 
 		m_SelectMenuColor = new Color (171.0f, 171.0f, 171.0f,255.0f) / 255;	//버튼 클릭 되었을 때의 색
+
+		AudioClip BGM = Resources.Load("Sounds/BackGround/BGM_3", typeof(AudioClip)) as AudioClip;
+		AudioManager.Instance.PlayBGM(BGM);
+
+		SE_Button = Resources.Load("Sounds/Effect/SE_Butten", typeof(AudioClip)) as AudioClip;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButton(0))
+		if (Input.GetMouseButtonDown(0))
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
+			
+			if(hit.collider != null)
+			{
+				AudioManager.Instance.PlaySE(SE_Button);
+			}
+		}
+		else if (Input.GetMouseButton(0))
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
@@ -76,6 +92,10 @@ public class SelectMenu : MonoBehaviour {
 						skip.transform.parent =  story.GetObjScene().transform; 
 						Destroy(story.GetObjScene(),story.GetTime());
 						StartCoroutine(ButtonActive(story.GetTime()));
+
+						AudioClip BGM = Resources.Load("Sounds/BackGround/BGM_4", typeof(AudioClip)) as AudioClip;
+						AudioManager.Instance.StopBGM ();
+						AudioManager.Instance.PlayBGM(BGM);
 					}
 					else if (hit.collider.gameObject == m_MainButton[1])
 					{
@@ -119,6 +139,8 @@ public class SelectMenu : MonoBehaviour {
 	
 		yield return new WaitForSeconds(_time);
 
+		AudioClip BGM = Resources.Load("Sounds/BackGround/BGM_3", typeof(AudioClip)) as AudioClip;
+		AudioManager.Instance.PlayBGM(BGM);
 		m_objSelect_Window.SetActive (true);
 	}
 }

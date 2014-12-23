@@ -12,6 +12,7 @@ public class AudioManager : MonoSingleton<AudioManager> {
 
     public void PlayBGM(AudioClip SEClip)
     {
+		audioSource [0].loop = true;
         audioSource[0].clip = SEClip;
         audioSource[0].Play();
     }

@@ -83,6 +83,10 @@ public class StageClearMenu : MonoBehaviour {
 			ShowStroy story = new ShowStroy("Ending01");
 			skip.transform.parent =  story.GetObjScene().transform; 
 			StartCoroutine(NextScene("Main",story.GetTime()));
+
+			AudioClip BGM = Resources.Load("Sounds/BackGround/BGM_4", typeof(AudioClip)) as AudioClip;
+			AudioManager.Instance.StopBGM ();
+			AudioManager.Instance.PlayBGM(BGM);
 		}
 		else 
 		{
